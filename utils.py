@@ -6,10 +6,7 @@ def fix_marks(fio):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=fio)
         child = schoolkid.full_name
-        bad_marks = Mark.objects.filter(schoolkid__full_name=child, points__in=[2, 3])
-        for bad_mark in bad_marks:
-            bad_mark.points = 5
-            bad_mark.save()
+        Mark.objects.filter(schoolkid__full_name=full_name, points__in=[2, 3]).update(points=5)
     except ObjectDoesNotExist:
         print('Ученик не найден')
     except MultipleObjectsReturned:
