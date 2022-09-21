@@ -17,7 +17,10 @@ $ cd project_folder
 ```
 $ python manage.py shell
 ```
-5. Прописываем в файле `manage.py` импорт `import utils`, сохраняем изменения  
+5. Импортируем файл в `shell`:
+```
+from utils import *
+```
 6. Запускаем функцию с ФИО ученика. Например, если хотим создать похвалу:  
 ```
 $ create_commendation('Иванов Иван Иванович')
