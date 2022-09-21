@@ -12,7 +12,7 @@ def fix_marks(fio):
     except MultipleObjectsReturned:
         print('Найдено более одного ученика')    
 
-def remove_chastisement(fio):
+def remove_chastisements(fio):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=fio)
         child = schoolkid.full_name
