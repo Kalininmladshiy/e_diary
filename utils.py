@@ -1,5 +1,6 @@
 import random
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+from datacenter.models import *
 
 
 def fix_marks(fio):
@@ -9,7 +10,8 @@ def fix_marks(fio):
     except ObjectDoesNotExist:
         print('Ученик не найден')
     except MultipleObjectsReturned:
-        print('Найдено более одного ученика')    
+        print('Найдено более одного ученика')
+
 
 def remove_chastisements(fio):
     try:
@@ -54,4 +56,4 @@ def create_commendation(fio):
     except ObjectDoesNotExist:
         print('Ученик не найден')
     except MultipleObjectsReturned:
-        print('Найдено более одного ученика')        
+        print('Найдено более одного ученика')
