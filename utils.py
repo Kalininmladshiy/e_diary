@@ -16,9 +16,7 @@ def remove_chastisements(fio):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=fio)
         child = schoolkid.full_name
-        chastisements = Chastisement.objects.filter(schoolkid__full_name=child)
-        for chastisement in chastisements:
-            chastisement.delete()        
+        Chastisement.objects.filter(schoolkid__full_name=full_name).delete()
     except ObjectDoesNotExist:
         print('Ученик не найден')
     except MultipleObjectsReturned:
