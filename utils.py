@@ -5,8 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 def fix_marks(fio):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=fio)
-        child = schoolkid.full_name
-        Mark.objects.filter(schoolkid__full_name=full_name, points__in=[2, 3]).update(points=5)
+        Mark.objects.filter(schoolkid=schoolkid, points__in=[2, 3]).update(points=5)
     except ObjectDoesNotExist:
         print('Ученик не найден')
     except MultipleObjectsReturned:
@@ -15,8 +14,7 @@ def fix_marks(fio):
 def remove_chastisements(fio):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=fio)
-        child = schoolkid.full_name
-        Chastisement.objects.filter(schoolkid__full_name=full_name).delete()
+        Chastisement.objects.filter(schoolkid=schoolkid).delete()
     except ObjectDoesNotExist:
         print('Ученик не найден')
     except MultipleObjectsReturned:
