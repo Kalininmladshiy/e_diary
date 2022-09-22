@@ -1,6 +1,7 @@
 import random
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-from datacenter.models import *
+from datacenter.models import Schoolkid, Teacher, Subject, Lesson, Mark
+from datacenter.models import Chastisement, Commendation
 
 
 def fix_marks(fio):
